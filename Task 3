@@ -1,0 +1,38 @@
+# cleaning with oop
+
+class DataCleaner:
+    def __init__(self):
+        self.data = []
+
+    def receive_data(self):
+        """
+        Collect data from the user as a list of integers.
+        """
+        raw_input = input("Enter exam scores separated by commas: ")
+        for item in raw_input.split(","):
+            item = item.strip()
+            if item == "":
+                self.data.append(None)
+            else:
+                self.data.append(int(item))
+
+    def clean_data(self):
+        """
+        Remove None values and negative numbers from the data.
+        """
+        clean_values = []
+        for v in self.data:
+            if v is None:
+                continue
+            if v < 0:
+                continue
+            clean_values.append(v)
+        self.data = clean_values
+
+
+# Using the class
+cleaner = DataCleaner()
+cleaner.receive_data()  
+cleaner.clean_data()    
+
+print("Cleaned scores:", cleaner.data)
