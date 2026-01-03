@@ -1,0 +1,26 @@
+# Cleans inputed values that are less than zero 
+
+def clean_data():
+    values = []
+    n = int(input("How many values do you want to enter? "))
+
+    for i in range(n):
+        value = input("Enter a value (or leave empty): ")
+
+        if value == "":
+            values.append(None)
+        else:
+            values.append(int(value))
+
+    clean_values = []
+
+    for v in values:
+        if v is not None and v >= 0:
+            clean_values.append(v)
+
+    return clean_values
+
+
+cleaned_data = clean_data()
+print("Clean data:", cleaned_data)
+
