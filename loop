@@ -1,0 +1,25 @@
+# loops..
+
+raw_values = []
+count = int(input("How many values do you want to enter? "))
+
+for i in range(count):
+    value = input("Enter a value (or leave empty): ")
+
+    if value == "":
+        raw_values.append(None)
+    else:
+        raw_values.append(int(value))
+
+clean_values = []
+
+for v in raw_values:
+    if v is None:
+        continue
+
+    if v < 0:
+        continue
+
+    clean_values.append(v)
+
+print("Clean data:", clean_values)
