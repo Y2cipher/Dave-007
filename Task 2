@@ -1,0 +1,24 @@
+# cleaning -tive values with_loop
+
+# Get raw data from user
+raw_input = input("Enter exam scores separated by commas: ")
+
+raw_scores = []
+for item in raw_input.split(","):
+    item = item.strip()
+    if item == "":
+        raw_scores.append(None)
+    else:
+        raw_scores.append(int(item))
+
+# Clean data using a loop
+clean_scores = []
+
+for score in raw_scores:
+    if score is None:
+        continue  # skip missing values
+    if score < 0:
+        continue  # skip negative values
+    clean_scores.append(score)
+
+print("Cleaned scores:", clean_scores)
