@@ -1,26 +1,24 @@
-# Cleans inputed values that are less than zero 
+# cleans -tive numbers
 
-def clean_data():
-    values = []
-    n = int(input("How many values do you want to enter? "))
-
-    for i in range(n):
-        value = input("Enter a value (or leave empty): ")
-
-        if value == "":
-            values.append(None)
-        else:
-            values.append(int(value))
-
+def clean_data(values):
+    """
+    Remove None values and negative numbers from a list.
+    """
     clean_values = []
-
     for v in values:
         if v is not None and v >= 0:
             clean_values.append(v)
-
     return clean_values
 
+raw_scores = []
+for item in raw_input.split(","):
+    item = item.strip()
+    if item == "":
+        raw_scores.append(None)
+    else:
+        raw_scores.append(int(item))
 
-cleaned_data = clean_data()
-print("Clean data:", cleaned_data)
+# Call the function to clean data
+cleaned_scores = clean_data(raw_scores)
 
+print("Cleaned scores:", cleaned_scores)
